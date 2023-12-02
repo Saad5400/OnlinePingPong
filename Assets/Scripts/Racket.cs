@@ -3,11 +3,13 @@ using UnityEngine;
 public class Racket : MonoBehaviour
 {
     public Camera worldCamera;
-    public float racketSpeed = 15;
-    public float startingRacketSpeed = 5f;
-    public float currentRacketSpeed;
-    public float racketAcceleration = 0.3f;
-    public float racketAccelerationOffset = 0.3f;
+    public float racketSpeed;
+    private float startingRacketSpeed = 5f;
+    private float currentRacketSpeed;
+    private float racketAcceleration = 0.01f;
+    private float currentRacketAcceleration;
+    private float racketAccelerationOffset = 0.3f;
+
     private Rigidbody2D rb;
     protected Vector2 racketDirection;
 
@@ -16,19 +18,38 @@ public class Racket : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentRacketSpeed = startingRacketSpeed;
+        currentRacketAcceleration = racketAcceleration;
     }
 
     private void FixedUpdate()
     {
         if (racketDirection.magnitude > racketAccelerationOffset && currentRacketSpeed < racketSpeed)
-            currentRacketSpeed += racketAcceleration;
+        {
+            currentRacketSpeed += currentRacketAcceleration;
+        }
         else if (racketDirection.magnitude < racketAccelerationOffset && currentRacketSpeed > startingRacketSpeed)
-            currentRacketSpeed -= racketAcceleration;
+        {
+            currentRacketSpeed -= currentRacketAcceleration;
+        }
+
+        if (racketDirection.magnitude > racketAccelerationOffset && currentRacketAcceleration < 2)
+        {
+            currentRacketAcceleration += currentRacketAcceleration;
+        }
+        else if (racketDirection.magnitude < racketAccelerationOffset)
+        {
+            currentRacketAcceleration = racketAcceleration;
+            currentRacketSpeed = startingRacketSpeed;
+        }
 
         if (currentRacketSpeed > racketSpeed)
+        {
             currentRacketSpeed = racketSpeed;
+        }
         if (currentRacketSpeed < startingRacketSpeed)
+        {
             currentRacketSpeed = startingRacketSpeed;
+        }
 
         rb.velocity = racketDirection * currentRacketSpeed;
     }

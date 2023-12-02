@@ -2151,8 +2151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 5
-  extraSpeed: 2
-  maxExtraSpeed: 20
+  extraSpeed: 1.5
+  maxExtraSpeed: 15
   player1Start: 1
 --- !u!114 &1515298297
 MonoBehaviour:
