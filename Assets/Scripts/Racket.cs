@@ -10,11 +10,13 @@ public class Racket : MonoBehaviour
     private float currentRacketAcceleration;
     private float racketAccelerationOffset = 0.3f;
 
+    protected bool isBot = false;
+
     private Rigidbody2D rb;
     protected Vector2 racketDirection;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentRacketSpeed = startingRacketSpeed;
@@ -23,6 +25,10 @@ public class Racket : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isBot)
+        {
+            rb.velocity = racketDirection * racketSpeed;
+        }
         if (racketDirection.magnitude > racketAccelerationOffset && currentRacketSpeed < racketSpeed)
         {
             currentRacketSpeed += currentRacketAcceleration;

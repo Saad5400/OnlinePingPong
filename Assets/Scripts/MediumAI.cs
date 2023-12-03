@@ -4,4 +4,10 @@ public class MediumAI : EasyAI
     {
         enabled = GameManager.gameMode == GameMode.MediumAI;
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        ballMovement.maxExtraSpeed = 14;
+    }
 }
