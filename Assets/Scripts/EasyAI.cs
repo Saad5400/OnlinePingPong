@@ -4,6 +4,7 @@ public class EasyAI : Racket
 {
     public GameObject ball;
     protected BallMovement ballMovement;
+    public float ballSpeed = 12;
 
     void Awake()
     {
@@ -13,9 +14,8 @@ public class EasyAI : Racket
     protected override void Start()
     {
         base.Start();
-        isBot = true;
         ballMovement = ball.GetComponent<BallMovement>();
-        ballMovement.maxExtraSpeed = 12;
+        ballMovement.maxExtraSpeed = ballSpeed;
     }
 
     void Update()
