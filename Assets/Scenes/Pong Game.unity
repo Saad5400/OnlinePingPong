@@ -1795,7 +1795,7 @@ MonoBehaviour:
   worldCamera: {fileID: 0}
   racketSpeed: 5
   ball: {fileID: 1515298291}
-  ballSpeed: 12
+  ballSpeed: 14
 --- !u!114 &1230910492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,9 +1809,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldCamera: {fileID: 0}
-  racketSpeed: 12.5
+  racketSpeed: 15
   ball: {fileID: 1515298291}
-  ballSpeed: 15
+  ballSpeed: 18
 --- !u!114 &1230910493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,9 +1825,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldCamera: {fileID: 0}
-  racketSpeed: 30
+  racketSpeed: 10
   ball: {fileID: 1515298291}
-  ballSpeed: 18
+  ballSpeed: 14
 --- !u!1 &1284997041
 GameObject:
   m_ObjectHideFlags: 0

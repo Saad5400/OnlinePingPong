@@ -18,11 +18,16 @@ public class EasyAI : Racket
         ballMovement.maxExtraSpeed = ballSpeed;
     }
 
-    void Update()
+    protected override void Update()
     {
         var diff = ball.transform.position.y - gameObject.transform.position.y;
         var absDiff = Mathf.Abs(diff);
         float directionY = absDiff > racketSpeed / 180 ? diff / absDiff : 0;
         racketDirection = new Vector2(0, directionY).normalized;
+    }
+
+    protected override void FixedUpdate()
+    {
+        rb.velocity = racketDirection * racketSpeed;
     }
 }

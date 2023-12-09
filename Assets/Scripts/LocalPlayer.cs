@@ -5,7 +5,7 @@ public abstract class LocalPlayer : Racket
     protected abstract string VerticalAxis { get; }
     protected abstract bool IsLeftPlayer { get; }
 
-    void Update()
+    protected override void Update()
     {
         float directionY = 0f;
 

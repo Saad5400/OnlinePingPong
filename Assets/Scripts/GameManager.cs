@@ -3,9 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject prefab;
-
     public static GameMode gameMode = GameMode.LocalPvP;
+    public static GameState gameState = GameState.Menu;
 
     private static GameManager Instance = null;
 
@@ -31,4 +30,11 @@ public enum GameMode
     EasyAI,
     MediumAI,
     HardAI,
+}
+
+public enum GameState
+{
+    Menu,
+    Searching,
+    Playing,
 }
